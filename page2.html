@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You 🌹</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-family:"Comic Sans MS", cursive;
+background:#ffe6f0;
+text-align:center;
+}
+
+h1{
+color:#ff4d88;
+}
+
+/* bouquet container */
+
+.bouquet{
+position:relative;
+width:250px;
+height:300px;
+margin-top:20px;
+}
+
+/* roses */
+
+.rose{
+position:absolute;
+font-size:50px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.rose:hover{
+transform:scale(1.2);
+}
+
+/* rose positions */
+
+.r1{ top:0; left:70px; }
+.r2{ top:0; right:70px; }
+.r3{ top:60px; left:20px; }
+.r4{ top:60px; right:20px; }
+.r5{ top:110px; left:100px; }
+
+/* stems */
+
+.stem{
+position:absolute;
+width:4px;
+height:120px;
+background:green;
+top:60px;
+}
+
+.s1{ left:90px; }
+.s2{ right:90px; }
+.s3{ left:40px; }
+.s4{ right:40px; }
+.s5{ left:120px; top:110px; }
+
+/* leaves */
+
+.leaf{
+position:absolute;
+font-size:20px;
+}
+
+.l1{ top:110px; left:80px; }
+.l2{ top:110px; right:80px; }
+.l3{ top:160px; left:30px; }
+.l4{ top:160px; right:30px; }
+.l5{ top:180px; left:110px; }
+
+/* paper wrap */
+
+.wrap{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:0;
+height:0;
+border-left:110px solid transparent;
+border-right:110px solid transparent;
+border-top:140px solid #d2a679;
+}
+
+/* ribbon */
+
+.ribbon{
+position:absolute;
+bottom:70px;
+left:50%;
+transform:translateX(-50%);
+font-size:30px;
+}
+
+/* note text */
+
+.note{
+margin-top:20px;
+font-size:20px;
+color:#444;
+max-width:400px;
+}
+
+/* continue button */
+
+#continueBtn{
+margin-top:20px;
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff8fb1;
+color:white;
+display:none;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Pull a rose to read a note 🌹</h1>
+
+<div class="bouquet">
+
+<span class="rose r1" onclick="showNote(1,this)">🌹</span>
+<span class="rose r2" onclick="showNote(2,this)">🌹</span>
+<span class="rose r3" onclick="showNote(3,this)">🌹</span>
+<span class="rose r4" onclick="showNote(4,this)">🌹</span>
+<span class="rose r5" onclick="showNote(5,this)">🌹</span>
+
+<div class="stem s1"></div>
+<div class="stem s2"></div>
+<div class="stem s3"></div>
+<div class="stem s4"></div>
+<div class="stem s5"></div>
+
+<span class="leaf l1">🍃</span>
+<span class="leaf l2">🍃</span>
+<span class="leaf l3">🍃</span>
+<span class="leaf l4">🍃</span>
+<span class="leaf l5">🍃</span>
+
+<div class="wrap"></div>
+<div class="ribbon">🎀</div>
+
+</div>
+
+<div class="note" id="noteText"></div>
+
+<button id="continueBtn" onclick="nextPage()">Continue 💗</button>
+
+<script>
+
+let opened = 0;
+
+const notes = [
+"",
+"Aap best ho yaarrrr aap literally best bandi ho love you so much yaarrrr 😭💗",
+"Aap meri sabse fav person ho yaarrrr merko apse baat karne me maze aate hai 😭💗",
+"Meri life ki sabse acchi memory hai apke sath baat karna yaarrrr 😭💗",
+"Aapne meri life bhot zyada acchi kardi yaarrrr sirf meri life me rehke 😗💗",
+"Ye sirf beginning hai samjhe?? Abhi to apko mere sath puri life spend karni hai yaarrrr 😗💗"
+];
+
+function showNote(num, element){
+
+document.getElementById("noteText").innerText = notes[num];
+
+element.style.visibility = "hidden";
+
+opened++;
+
+if(opened >= 5){
+document.getElementById("continueBtn").style.display="block";
+}
+
+}
+
+function nextPage(){
+window.location.href="secret.html";
+}
+
+</script>
+
+</body>
+</html>
