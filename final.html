@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 1 Year 💗</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:#ffe6f0;
+font-family:"Comic Sans MS", cursive;
+text-align:center;
+overflow:hidden;
+}
+
+/* HEART */
+
+.heart{
+font-size:200px;
+color:#ff4d88;
+position:relative;
+animation:beat 1s infinite;
+text-shadow:
+0 0 10px #ff4d88,
+0 0 20px #ff4d88,
+0 0 30px #ff85a2,
+0 0 40px #ff85a2,
+0 0 50px #ffb3c6;
+}
+
+/* HEARTBEAT */
+
+@keyframes beat{
+0%{transform:scale(1);}
+25%{transform:scale(1.15);}
+40%{transform:scale(1);}
+60%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+/* FADE */
+
+.fade{
+animation:fadeOut 2s forwards;
+}
+
+@keyframes fadeOut{
+0%{opacity:1;}
+100%{opacity:0;}
+}
+
+/* NAMES */
+
+.names{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:38px;
+color:white;
+font-weight:bold;
+}
+
+/* LOVE TEXT */
+
+#loveText{
+font-size:30px;
+color:#ff4d88;
+max-width:750px;
+display:none;
+animation:pop 1s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+100%{transform:scale(1);}
+}
+
+/* FINAL MESSAGE */
+
+#finalMsg{
+margin-top:20px;
+font-size:26px;
+color:#444;
+display:none;
+}
+
+/* FLOATING HEARTS */
+
+.floatHeart{
+position:absolute;
+bottom:-20px;
+font-size:20px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-110vh);opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="heart" id="mainHeart">
+❤️
+<div class="names">Aatif & Huda</div>
+</div>
+
+<div id="loveText">
+meri rasmalaiiiii meri jaannn meri kuchuuu puchuuuu meri jaanaaaa
+meri pyari si jaannn meri cute si bacchiiii mwahhhhhhh 😭💗🎀💋
+</div>
+
+<div id="finalMsg">
+Once again Happy 1 Year Anniversary and I loveee youuu sooo muchhhhhh heheeeeeee 😭💗🎀💐💋
+</div>
+
+<audio id="song" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* HEART BEATS FOR 5 SECONDS */
+
+setTimeout(()=>{
+
+document.getElementById("mainHeart").classList.add("fade");
+
+},5000);
+
+/* SHOW LOVE TEXT */
+
+setTimeout(()=>{
+
+document.getElementById("mainHeart").style.display="none";
+document.getElementById("loveText").style.display="block";
+
+},6500);
+
+/* SHOW FINAL MESSAGE + PLAY SONG */
+
+setTimeout(()=>{
+
+document.getElementById("finalMsg").style.display="block";
+document.getElementById("song").play();
+
+},8500);
+
+/* FLOATING HEARTS */
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.classList.add("floatHeart");
+heart.innerHTML="💗";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*25+15)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+},400);
+
+</script>
+
+</body>
+</html>
