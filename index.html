@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 1 Year ❤️</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+font-family:"Comic Sans MS", cursive;
+
+/* background image (add later) */
+background-size:cover;
+background-position:center;
+
+overflow:hidden;
+}
+
+/* anniversary text */
+
+h1{
+color:white;
+font-size:3em;
+text-shadow:0 0 15px rgba(255,255,255,0.7);
+animation:floatText 3s ease-in-out infinite;
+position:relative;
+z-index:2;
+}
+
+@keyframes floatText{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+
+}
+
+/* tap message */
+
+.tap{
+margin-top:20px;
+color:white;
+font-size:20px;
+opacity:0;
+animation:fadeIn 3s forwards;
+animation-delay:3s;
+z-index:2;
+}
+
+@keyframes fadeIn{
+to{opacity:1;}
+}
+
+/* floating hearts */
+
+.heart{
+position:absolute;
+bottom:-50px;
+color:#ff8fb1;
+font-size:20px;
+animation:floatHeart linear infinite;
+z-index:0;
+}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+
+}
+
+/* sparkles */
+
+.sparkle{
+position:absolute;
+font-size:20px;
+animation:twinkle 2s infinite alternate;
+z-index:0;
+}
+
+@keyframes twinkle{
+
+from{opacity:0.3;}
+to{opacity:1;}
+
+}
+
+</style>
+</head>
+
+<body onclick="nextPage()">
+
+<h1>
+HAPPY 1 YEAR ANNIVERSARY<br>
+HUDAAAA 😭💗
+</h1>
+
+<div class="tap">Tap anywhere for your surprise 💗</div>
+
+<script>
+
+/* go to next page */
+
+function nextPage(){
+window.location.href="page2.html";
+}
+
+/* floating hearts */
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💗";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*25+10)+"px";
+heart.style.animationDuration=(Math.random()*5+5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+},400);
+
+/* sparkles */
+
+for(let i=0;i<20;i++){
+
+const sparkle=document.createElement("div");
+sparkle.classList.add("sparkle");
+sparkle.innerHTML="✨";
+
+sparkle.style.top=Math.random()*100+"%";
+sparkle.style.left=Math.random()*100+"%";
+
+document.body.appendChild(sparkle);
+
+}
+
+</script>
+
+</body>
+</html>
